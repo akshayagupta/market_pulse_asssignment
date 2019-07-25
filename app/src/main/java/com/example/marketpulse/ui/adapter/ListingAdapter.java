@@ -1,4 +1,4 @@
-gpackage com.example.marketpulse.ui.adapter;
+package com.example.marketpulse.ui.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +18,7 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.ListView
     public void setData(List<MarketApiResponseModel> marketApiResponseModels)
     {
         this.marketApiResponseModels = marketApiResponseModels;
+        notifyDataSetChanged();
     }
 
 
@@ -33,7 +34,8 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.ListView
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder listViewHolder, int i)
     {
-
+        listViewHolder.getListingName().setText(marketApiResponseModels.get(i).getName());
+        listViewHolder.getListingTagView().setText(marketApiResponseModels.get(i).getTag());
     }
 
     @Override
@@ -63,7 +65,7 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.ListView
             return _listingNameView;
         }
 
-        public TextView get_listingTagView()
+        public TextView getListingTagView()
         {
             return _listingTagView;
         }

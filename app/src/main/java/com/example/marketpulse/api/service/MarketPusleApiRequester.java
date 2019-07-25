@@ -11,23 +11,10 @@ import java.util.List;
 
 public class MarketPusleApiRequester
 {
-    public void getData()
+    public void getData(Callback<List<MarketApiResponseModel>> callback)
     {
         MarketPulseApiService marketPulseApiService = RetrofitClientInstance.getInstance().createService(MarketPulseApiService.class);
         Call<List<MarketApiResponseModel>> call = marketPulseApiService.getData();
-        call.enqueue(new Callback<List<MarketApiResponseModel>>()
-        {
-            @Override
-            public void onResponse(Call<List<MarketApiResponseModel>> call, Response<List<MarketApiResponseModel>> response)
-            {
-                Log.d("akshay" , "success respone");
-            }
-
-            @Override
-            public void onFailure(Call<List<MarketApiResponseModel>> call, Throwable t)
-            {
-                Log.d("akshay" , "failure respone");
-            }
-        });
+        call.enqueue(callback);
     }
 }

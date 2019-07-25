@@ -18,4 +18,13 @@ public class MarketApiResponseModel
     @SerializedName(COLOR)
     private String color;
 
+    public String getName()
+    {
+        return name;
+    }
+
+    public String getTag()
+    {
+        return tag;
+    }
 }
