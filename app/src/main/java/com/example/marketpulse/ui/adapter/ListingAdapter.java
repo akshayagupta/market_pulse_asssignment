@@ -1,5 +1,6 @@
 package com.example.marketpulse.ui.adapter;
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,8 +35,16 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.ListView
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder listViewHolder, int i)
     {
-        listViewHolder.getListingName().setText(marketApiResponseModels.get(i).getName());
-        listViewHolder.getListingTagView().setText(marketApiResponseModels.get(i).getTag());
+        MarketApiResponseModel marketApiResponseModel = marketApiResponseModels.get(i);
+        listViewHolder.getListingName().setText(marketApiResponseModel.getName());
+        listViewHolder.getListingTagView().setText(marketApiResponseModel.getTag());
+        if(marketApiResponseModel.getColor().equalsIgnoreCase("green"))
+        {
+            listViewHolder.getListingTagView().setTextColor(Color.GREEN);
+        } else if(marketApiResponseModel.getColor().equalsIgnoreCase("red"))
+        {
+            listViewHolder.getListingTagView().setTextColor(Color.RED);
+        }
     }
 
     @Override

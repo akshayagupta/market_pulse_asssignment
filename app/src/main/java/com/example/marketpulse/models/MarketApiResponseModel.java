@@ -27,4 +27,9 @@ public class MarketApiResponseModel
     {
         return tag;
     }
+
+    public String getColor()
+    {
+        return color;
+    }
 }

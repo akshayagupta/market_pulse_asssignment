@@ -24,6 +24,11 @@ public class ListingActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         _listRecyclerView = findViewById(R.id.listRecyclerView);
         _listRecyclerView.setAdapter(new ListingAdapter());
+        fetchListData();
+    }
+
+    private void fetchListData()
+    {
         new MarketPusleApiRequester().getData(new Callback<List<MarketApiResponseModel>>()
         {
             @Override
