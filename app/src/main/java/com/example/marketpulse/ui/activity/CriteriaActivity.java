@@ -1,9 +1,10 @@
-package com.example.marketpulse;
+package com.example.marketpulse.ui.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import com.example.marketpulse.R;
 
-public class MainActivity extends AppCompatActivity
+public class CriteriaActivity extends AppCompatActivity
 {
 
     @Override
