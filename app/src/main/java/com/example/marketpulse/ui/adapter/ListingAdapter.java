@@ -1,4 +1,4 @@
-package com.example.marketpulse.ui.adapter;
+gpackage com.example.marketpulse.ui.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,9 +7,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.marketpulse.R;
+import com.example.marketpulse.models.MarketApiResponseModel;
+
+import java.util.List;
 
 public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.ListViewHolder>
 {
+    List<MarketApiResponseModel> marketApiResponseModels;
+
+    public void setData(List<MarketApiResponseModel> marketApiResponseModels)
+    {
+        this.marketApiResponseModels = marketApiResponseModels;
+    }
+
+
     @NonNull
     @Override
     public ListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
@@ -28,6 +39,10 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.ListView
     @Override
     public int getItemCount()
     {
+        if(marketApiResponseModels != null)
+        {
+            return marketApiResponseModels.size();
+        }
         return 0;
     }
 
