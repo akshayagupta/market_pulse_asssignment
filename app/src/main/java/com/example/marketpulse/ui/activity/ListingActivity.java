@@ -3,6 +3,7 @@ package com.example.marketpulse.ui.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import com.example.marketpulse.R;
 import com.example.marketpulse.api.service.MarketPusleApiRequester;
 import com.example.marketpulse.models.MarketApiResponseModel;
