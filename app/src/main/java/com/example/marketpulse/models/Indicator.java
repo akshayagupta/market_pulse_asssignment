@@ -4,7 +4,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import org.json.JSONObject;
 
-public class Indicator
+import java.io.Serializable;
+
+public class Indicator implements Serializable
 {
     private String studyType;
     private String parameter_name;

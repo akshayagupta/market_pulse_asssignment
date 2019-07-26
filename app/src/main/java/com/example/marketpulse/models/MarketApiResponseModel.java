@@ -5,9 +5,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
 import org.json.JSONArray;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class MarketApiResponseModel
+public class MarketApiResponseModel implements Serializable
 {
     public static final String ID = "id";
     public static final String NAME = "name";
