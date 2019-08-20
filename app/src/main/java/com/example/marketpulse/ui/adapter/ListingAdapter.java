@@ -1,5 +1,6 @@
 package com.example.marketpulse.ui.adapter;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.marketpulse.R;
 import com.example.marketpulse.models.MarketApiResponseModel;
+import com.example.marketpulse.ui.activity.CriteriaActivity;
 
 import java.util.List;
 
@@ -35,7 +37,7 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.ListView
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder listViewHolder, int i)
     {
-        MarketApiResponseModel marketApiResponseModel = marketApiResponseModels.get(i);
+        final MarketApiResponseModel marketApiResponseModel = marketApiResponseModels.get(i);
         listViewHolder.getListingName().setText(marketApiResponseModel.getName());
         listViewHolder.getListingTagView().setText(marketApiResponseModel.getTag());
         if(marketApiResponseModel.getColor().equalsIgnoreCase("green"))
@@ -45,6 +47,16 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.ListView
         {
             listViewHolder.getListingTagView().setTextColor(Color.RED);
         }
+        listViewHolder.itemView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(v.getContext(), CriteriaActivity.class);
+                intent.putExtra(CriteriaActivity.ITEM_CLICKED,marketApiResponseModel);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
